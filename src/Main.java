@@ -15,3 +15,15 @@ public class Main {
 
     }
 }
+        // ----------------------------------------
+        //  DIEGO GARZÓN
+        // ----------------------------------------
+
+        Administrador adminDiego = new Administrador("Diego Garzón", "diego.admin@correo.com", "Finanzas");
+        Usuario usuarioDiego = new Cliente("Diego Garzón", "diego.cliente@correo.com", 1800000);
+        MetaAhorro metaDiego = new MetaAhorro("Moto eléctrica", 5000000, 12);
+
+        // Agregación: el administrador gestiona un cliente
+        adminDiego.agregarCliente((Cliente) usuarioDiego);
+
+        System.out.println("Administrador " + adminDiego.getNombre() + " gestiona al cliente " + usuarioDiego.getNombre());
