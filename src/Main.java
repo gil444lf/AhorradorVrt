@@ -15,18 +15,25 @@ public class Main {
 
     }
 }
-        // ----------------------------------------
+
+        
         //  DIEGO GARZÓN
-        // ----------------------------------------
+        Administrador adminDiego = new Administrador("Diego Garzón", "diego.admin@correo.com");
+        Cliente clienteDiego = new Cliente("Diego Garzón", "diego.cliente@correo.com");
+        Cuenta cuentaDiego = new Cuenta(1800000);
+        MetaAhorro metaMoto = new MetaAhorro("Moto eléctrica", 5000000);
+        clienteDiego.agregarCuenta(cuentaDiego);
+        clienteDiego.agregarMeta(metaMoto);
 
-        Administrador adminDiego = new Administrador("Diego Garzón", "diego.admin@correo.com", "Finanzas");
-        Usuario usuarioDiego = new Cliente("Diego Garzón", "diego.cliente@correo.com", 1800000);
-        MetaAhorro metaDiego = new MetaAhorro("Moto eléctrica", 5000000, 12);
+        adminDiego.revisarCuentas();
+        adminDiego.mostrarTipo();
 
-        // Agregación: el administrador gestiona un cliente
-        adminDiego.agregarCliente((Cliente) usuarioDiego);
+        Banco banco = new Banco("Banco AhorraMás");
+        banco.agregarCliente(juan);
+        banco.agregarCliente(clienteDiego);
 
-        System.out.println("Administrador " + adminDiego.getNombre() + " gestiona al cliente " + usuarioDiego.getNombre());
+        Reporte reporte = adminDiego.generarReporte(banco);
+        reporte.mostrarReporte();
 
 
     
