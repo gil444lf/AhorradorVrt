@@ -30,7 +30,7 @@ public class Main {
 
 
         // ----------------------------------------
-        // 👤 SEBASTIÁN GIRALDO GRISALES
+         SEBASTIÁN GIRALDO GRISALES
         // ----------------------------------------
 
         Administrador adminSebas = new Administrador("Sebastián Giraldo Grisales", "sebas.admin@correo.com", "Ahorros Premium");
