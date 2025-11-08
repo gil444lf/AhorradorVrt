@@ -33,18 +33,21 @@ public class Main {
         // SEBASTIÁN GIRALDO GRISALES
         // ----------------------------------------
 
-        Administrador adminSebas = new Administrador("Sebastián Giraldo Grisales", "sebas.admin@correo.com", "Ahorros Premium");
-        Usuario usuarioSebas = new Cliente("Sebastián Giraldo Grisales", "sebas.cliente@correo.com", 2700000);
-        MetaAhorro metaSebas = new MetaAhorro("PC Gamer", 3500000, 8);
+ Administrador adminSebas = new Administrador("Sebastián Giraldo Grisales", "sebas.admin@correo.com");
+        Cliente clienteSebas = new Cliente("Sebastián Giraldo Grisales", "sebas.cliente@correo.com");
+        Cuenta cuentaSebas = new Cuenta(2700000);
+        MetaAhorro metaPC = new MetaAhorro("PC Gamer", 3500000);
 
-        // Agregación
-        adminSebas.agregarCliente((Cliente) usuarioSebas);
+        clienteSebas.agregarCuenta(cuentaSebas);
+        clienteSebas.agregarMeta(metaPC);
 
-        // Composición indirecta a través de CalculadoraAhorro
-        CalculadoraAhorro calculadoraSebas = new CalculadoraAhorro(metaSebas, (Cliente) usuarioSebas);
+        Transaccion t2 = new Transaccion("Depósito", 500000);
+        clienteSebas.registrarTransaccion(t2);
+        metaPC.ahorrar(500000);
+        clienteSebas.verificarRecompensa();
 
-        System.out.println("Ahorro mensual recomendado para Sebastián: $" + calculadoraSebas.calcularAhorroSugerido());
-        adminSebas.mostrarInformacion();
+        Notificacion notifSebas = new Notificacion("¡Has avanzado un 20% en tu meta del PC Gamer!");
+        notifSebas.enviar(clienteSebas);
 
 
 
