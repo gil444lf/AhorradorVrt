@@ -29,9 +29,9 @@ public class Main {
         System.out.println("Administrador " + adminDiego.getNombre() + " gestiona al cliente " + usuarioDiego.getNombre());
 
 
-        // ----------------------------------------
+    
         // SEBASTIÁN GIRALDO GRISALES
-        // ----------------------------------------
+     
 
  Administrador adminSebas = new Administrador("Sebastián Giraldo Grisales", "sebas.admin@correo.com");
         Cliente clienteSebas = new Cliente("Sebastián Giraldo Grisales", "sebas.cliente@correo.com");
