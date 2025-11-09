@@ -53,8 +53,38 @@ public class Main {
         metaPC.ahorrar(500000);
         clienteSebas.verificarRecompensa();
 
+
         Notificacion notifSebas = new Notificacion("¡Has avanzado un 20% en tu meta del PC Gamer!");
         notifSebas.enviar(clienteSebas);
 
 
+        // ----------------------------------------
+        //  JUAN CAMILO RODRÍGUEZ
+        // ----------------------------------------
+        Cliente juanCamilo = new Cliente("Juan Camilo Rodríguez", "juan.camilo@correo.com");
+        Cuenta cuentaAhorros = new Cuenta(1200000);
+        Cuenta cuentaViajes = new Cuenta(800000);
+        MetaAhorro metaViaje = new MetaAhorro("Viaje a Europa", 7000000);
 
+        juanCamilo.agregarCuenta(cuentaAhorros);
+        juanCamilo.agregarCuenta(cuentaViajes);
+        juanCamilo.agregarMeta(metaViaje);
+
+        Transaccion t3 = new Transaccion("Depósito ahorro", 300000);
+        juanCamilo.registrarTransaccion(t3);
+        metaViaje.ahorrar(300000);
+
+        Notificacion notifCamilo = new Notificacion("Tu meta de viaje va por buen camino 🚀");
+        notifCamilo.enviar(juanCamilo);
+        juanCamilo.mostrarHistorial();
+
+        // ----------------------------------------
+        //  RESUMEN FINAL
+        // ----------------------------------------
+        System.out.println("\n==== RESUMEN FINAL DEL SISTEMA ====");
+        banco.agregarCliente(clienteSebas);
+        banco.agregarCliente(juanCamilo);
+
+        Reporte reporteFinal = adminSebas.generarReporte(banco);
+        reporteFinal.mostrarReporte();
+    }
