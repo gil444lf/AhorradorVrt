@@ -1,23 +1,30 @@
 
 public class Main {
     public static void main(String[] args) {
-        // Aquí cada integrante debe crear 3 objetos según las clases
-        // Ejemplo: Cliente c1 = new Cliente("Juan", "juan@gmail.com", 2000000);
-        // Dejar vacío para completar en grupo
+        // Aquí cada integrante debe crear minimo 3 objetos según las clases
 
-        // JUAN JOSÉ GIL GUTIÉRREZ
-        // Polimorfismo: Usuario referencia a Cliente
-        Usuario usuarioJuan = new Cliente("Juan José Gil Gutiérrez", "juan.gil@correo.com", 2500000);
-        MetaAhorro metaJuan = new MetaAhorro("Laptop Asus TUF", 2400000, 6);
-        CalculadoraAhorro calculadoraJuan = new CalculadoraAhorro(metaJuan, (Cliente) usuarioJuan);
+        //  JUAN JOSÉ GIL GUTIÉRREZ
+     
+        Cliente juan = new Cliente("Juan José Gil Gutiérrez", "juan.gil@correo.com");
+        Cuenta cuentaJuan = new Cuenta(2500000);
+        MetaAhorro metaLaptop = new MetaAhorro("Laptop Asus TUF", 2400000);
+        juan.agregarCuenta(cuentaJuan);
+        juan.agregarMeta(metaLaptop);
 
-        System.out.println("Ahorro sugerido para Juan: $" + calculadoraJuan.calcularAhorroSugerido());
+        Transaccion t1 = new Transaccion("Depósito inicial", 2500000);
+        juan.registrarTransaccion(t1);
+        metaLaptop.ahorrar(500000);
+        juan.verificarRecompensa();
 
-    }
-}
+        Notificacion notifJuan = new Notificacion("Recuerda ahorrar un 10% más este mes");
+        notifJuan.enviar(juan);
 
-        
+        juan.mostrarTipo();
+        juan.mostrarHistorial();
+
+
         //  DIEGO GARZÓN
+      
         Administrador adminDiego = new Administrador("Diego Garzón", "diego.admin@correo.com");
         Cliente clienteDiego = new Cliente("Diego Garzón", "diego.cliente@correo.com");
         Cuenta cuentaDiego = new Cuenta(1800000);
@@ -88,3 +95,4 @@ public class Main {
         Reporte reporteFinal = adminSebas.generarReporte(banco);
         reporteFinal.mostrarReporte();
     }
+}
